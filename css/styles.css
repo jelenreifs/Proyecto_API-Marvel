@@ -408,15 +408,28 @@ footer p {
 
 .results-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   flex-wrap: wrap;
 }
 
-.results-wrapper div {
+/* .results-wrapper div {
   padding: .6em;
   flex: 1 1 22%;
+} */
+
+.results-wrapper a {
+  padding: .6em;
+  flex: 0 1 20%;
+}
+
+.results-wrapper h4 {
+  margin: 0;
+  color: #fff;
+  background: #000;
+  padding: 0.5em 0;
+  text-align: center;
 }
 
 .results-wrapper img {
-  width: 100%;
+  max-width: 240px;
 }
