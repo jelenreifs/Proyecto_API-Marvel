@@ -7,6 +7,9 @@
         <title>Marvel</title>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
                 rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+                integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+                crossorigin="anonymous">
         <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -28,7 +31,7 @@
                                         <li class="nav-tab"><a href="index.html">Inicio</a></li>
                                         <li class="nav-tab"><a href="sobre_nosotros.html">Sobre nosotros</a></li>
                                         <li class="nav-tab selected"><a href="#">Catálogo</a></li>
-                                        <li class="nav-tab"><a href="#">Favoritos</a></li>
+                                        <li class="nav-tab"><a href="./favoritos.html">Favoritos</a></li>
                                 </ul>
                         </div>
                 </nav>
@@ -36,61 +39,15 @@
 
         <main class="wrapper">
                 <section class="catalogo">
-                        <h2>Catálogo</h2>
+                        <h2>Catálogo de superhéroes</h2>
                         <div class="buscador">
-
-                                <input type="text" id="hero" name="hero" placeholder="Busca un superhéroe">
-                                <button onclick="searchHero()">Buscar</button>
-
-
-                                <input type="search" id="comic" name="comic" placeholder="Busca un cómic">
-                                <button onclick="searchComic()">Buscar</button>
-
-
-                        </div>
+                                <input type="search" id="hero" name="hero" placeholder="Busca un superhéroe">
+                                <button class="search" onclick="searchHero()">Buscar</button </div>
 
                 </section>
 
                 <section class="resultados">
-                        <h2>Resultados</h2>
-                        <div id="resultados" class="results-wrapper">
-                                <!--   <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
-
-                                <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
-                                <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
-                                <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
-
-                                <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
-
-                                <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
-                                <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
-                                <div>
-                                        <img src="./images/hulk.jpg" alt="portada">
-                                        <p>Nombre Comic</p>
-                                </div>
- -->
-                        </div>
+                        <div id="resultados" class="results-wrapper"></div>
                 </section>
         </main>
         <footer>
