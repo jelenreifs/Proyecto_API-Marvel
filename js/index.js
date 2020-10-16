@@ -2,8 +2,7 @@ const KEY = "10217395314010785";
 const URL_PATH = `https://superheroapi.com/api/${KEY}`;
 
 
-let hero = "";
-let resultado;
+
 
 
 
@@ -24,40 +23,59 @@ headers.append('Access-Control-Allow-Credentials', 'true'); */
 /*                     CATÁLOGO                            */
 /***********************************************************/
 
+let hero = "";
+let resultado;
+let arrayhero = [];
+
+
+
+
+
+
 function searchHero() {
  
   const NAME_HERO = document.getElementById("hero").value;
-  console.log(NAME_HERO);
-  
   const URL_HERO = `${URL_PATH}/search/${NAME_HERO}`;
 
- // fetch(URL_HERO, {mode:'cors'})
- //fetch(URL_HERO, { method: "GET", headers })
  fetch(URL_HERO)
     .then(response => response.json())
     .then(data => {
-      //console.log(data)
       resultado = data.results;
-   
+
+
       resultado.forEach(element => {
+
+        // Incluir en un array los objetos de cada uno de los personajes.
+        // Los almacenamos en el localstorage. 
+        arrayhero.push(element);
+
         hero += `
-        
-          
           <div class="card-hero" href="#">
            <div class="card-image">
             <img id="hero-image" src="${element.image.url}" alt="Imagen de ${element.name}">
+
             </div>
             <div class="card-name">
               <h4 id="hero-name">${element.name}</h4>
-              <a onclick="addFavoritos()"><i class="far fa-heart"></i></a>           
+              <i onclick="addFavoritos(arrayhero)" class="far fa-heart"></i>           
               </div>            
           </div>
                 `;
+        
+    
+
       });
-      document.getElementById("resultados").innerHTML = hero;
-      document.getElementsByClassName("resultados").appendChild = `<h3>Resultados ${element}</h3>`;
+      let areaResults = document.querySelector(".resultados");
+      let resultsHeroes = document.getElementById("results-hero");
+      let titulo =  `<h3>Resultados</h3>`;
+      resultsHeroes.innerHTML = hero;
+      //areaResults.insertBefore(titulo,hero);
+     // resultsHeroes.appendChild(titulo);
        
     })
+  
+
+   
 }
 
 
@@ -67,57 +85,46 @@ function searchHero() {
 
 /* AÑADIR A FAVORITOS */
 
-function addFavoritos() { 
+function addFavoritos(arrayhero) {
 /*  <i class="fas fa-heart"></i> */
-  
+  localStorage.setItem("superheroe", JSON.stringify(arrayhero));
+}
 
-  let datos = {
-    name: document.getElementById("hero-name").textContent,
-    image: document.getElementById("hero-image").textContent,
-  };
+/* AÑADIR A FAVORITOS */
+function drawFavoritos(auperheroe) {
 
-  // leemos los favoritos del localStorage
-  let favoritos = localStorage.getItem("favoritos") || "[]";
-  favoritos = JSON.parse(favoritos);
+  localStorage.getItem(JSON.parse("superheroe"));
 
-  // buscamos el superhéroe en la lista de favoritos
-  let posLista = favoritos.findIndex(function (e) {
-    return e.name == datos.name;
-  });
+  for (let i = 0; i < superheroe.length; i++) {
+    console.log("Nombre " + superheroe[i].id);
 
-  if (posLista > -1) {
-    // si está, lo quitamos
-    favoritos.splice(posLista, 1);
-  } else {
-    // si no está, lo añadimos
-    favoritos.push(datos);
   }
 
-  // guardamos la lista de favoritos 
-  localStorage.setItem("favoritos", JSON.stringify(favoritos));
-
-}
 
 
-/* TABLA DE FAVORITOS */
+/*   if (resultados !== -1) {
+    Ponemos aquí el código del localstorage
+    
+  } else {
+    console.log('No has guardado ningún héroe como favorito')
+ 
+  }
+ */
 
-// leemos los favoritos del localStorage
-let favoritos = localStorage.getItem("favoritos") || "[]";
-favoritos = JSON.parse(favoritos);
 
-let fila;
+  /* TABLA DE FAVORITOS */
 
-for (let i = 0; i < favoritos.length; i++) {
-  fila = `
-    <td>${favoritos[i].image}</td>
-    <td>${favoritos[i].name}</td>
+/*   for (let i = 0; i < superheroe.length; i++) {
+    fila = `
+    <td>${superheroe[i].image}</td>
+    <td>${superheroe[i].name}</td>
     <td>&nbsp;</td>
     `
-}
+  } */
 
-// creamos una tabla
-let tablaFavoritos = 
-      `<table>
+  // creamos una tabla
+/*   let tablaFavoritos =
+    `<table>
           <th>
               <td>&nbsp;</td>
               <td>Imagen</td>
@@ -127,27 +134,14 @@ let tablaFavoritos =
           <tr>
         
           </tr>
-      </table>`
+      </table>` */
 
 
-// agregamos las celdas a cada una de las filas
-document.querySelector("tr").appendChild(fila);
+  // agregamos las celdas a cada una de las filas
+  //document.querySelector("tr").appendChild(fila);
 
 
-// agregamos la tabla a la pagina
-document.getElementById("tabla-favoritos").innerHTML = tablaFavoritos;
+  // agregamos la tabla a la pagina
+ // document.getElementById("tabla-favoritos").innerHTML = tablaFavoritos;
 
-
-
-
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
+}
