@@ -91,7 +91,7 @@ function addFavoritos(arrayhero) {
 }
 
 /* RECUPERAR DEL LOCALSTORAGE */
-function drawFavoritos(auperheroe) {
+function drawFavoritos() {
 
   localStorage.getItem(JSON.parse("superheroe"));
 
