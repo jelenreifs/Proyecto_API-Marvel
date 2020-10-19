@@ -29,6 +29,13 @@ h2 {
   flex: 1;
 }
 
+.error {
+  background-color: #c00;
+  color: #fff;
+  font-weight: bold;
+  padding: .5em 1em;
+}
+
 /* BOTONES */
 .button {
   border: none;
@@ -362,6 +369,7 @@ header .hidden {
 section.novedades {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .masonry {

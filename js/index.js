@@ -10,18 +10,8 @@ const URL_PATH = `https://superheroapi.com/api/${KEY}`;
 /*                        INDEX                            */
 /***********************************************************/
 let imageHeroes;
- let resultsImages
-
-/* const HERO_ENDPOINTS = {
-  SPIDERMAN:`${URL_PATH}/search/spider-man`,
-  LOBEZNO:`${URL_PATH}/search/wolverine`,
-  IRONMAN: `${URL_PATH}/search/ironman`,
-  MAGNETO: `${URL_PATH}/search/magneto`,
-  VENON: `${URL_PATH}/search/spider-man`,
-  DEADPOOL: `${URL_PATH}/search/deadpool`,
-  CYBORG: `${URL_PATH}/search/cyborg`,
-  HAWKGIRL: `${URL_PATH}/search/hawkgirl` 
-} */
+let resultsImages;
+let errorFetch;
 
 const HERO_ENDPOINTS = [
   `${URL_PATH}/search/spider-man`,
@@ -33,6 +23,8 @@ const HERO_ENDPOINTS = [
   `${URL_PATH}/search/hawkgirl` 
 ]
 
+/* Todos lo superhéroes */
+
 for (let i = 0; i < HERO_ENDPOINTS.length; i++) {
   fetch(HERO_ENDPOINTS[i])
     .then(response => response.json())
@@ -40,15 +32,35 @@ for (let i = 0; i < HERO_ENDPOINTS.length; i++) {
     
       resultsImages = data.results;
 
-      resultsImages.forEach(element => {
-        imageHeroes += `
+      if (resultsImages !== -1) {
+        resultsImages.forEach(element => {
+          imageHeroes += `
          <div class="item">
             <img src="${element.image.url}" alt="Imagen de ${element.name}">
          </div>`;
-      })
-      document.querySelector('.masonry').innerHTML = imageHeroes;
-    })   
+        })
+        document.querySelector('.masonry').innerHTML = imageHeroes;
+        
+      } else { 
+        errorFetch = `
+          <div class="error">
+              <p>error en el fetch</p>
+              <button onclic="cerrarMensaje()">ELIMINAR</button>
+          </div>
+         `;
+        document.querySelector('.novedades .aviso').innerHTML = errorFetch;
+      }
+
+    }) 
 }
+
+function cerrarMensaje() {
+  console.log('Quiero cerrar')
+/*   let error = document.querySelectorAll('.error');
+  document.querySelector('.aviso').removeChild(lastChild); */
+}
+
+
 
 
 /***********************************************************/
@@ -59,7 +71,8 @@ let hero = "";
 let resultado;
 
 let arrayHero = [];
-let  detalleHero;
+let detalleHero;
+let favoritos = [];
 
 
 function searchHero() {
@@ -71,35 +84,18 @@ function searchHero() {
     .then(response => response.json())
     .then(data => {
       resultado = data.results;
-    
-   /*    for (let i = 0; i < resultado.length; i++) {
-      
-        
-        detalleHero = {
-          'id' : resultado.id,
-         'name' : resultado.name,
-         'work' : resultado.work.occupation
-        } 
-        
-      }
-
-      console.log(detalleHero); */
-
-
-
 
       resultado.forEach(element => {
-      
-        // Incluir en un array los objetos de cada uno de los personajes.
-        // Los almacenamos en el localstorage. 
 
-             detalleHero = {
-          'id' : element.id,
-         'name' : element.name,
-         'work' : element.work.occupation
-        } 
-        
-  
+        detalleHero = {
+          image: element.image.url,
+          id: element.id,
+          name: element.name,
+          work: element.work.occupation,
+        };
+        arrayHero.push(detalleHero);
+
+
         hero += `
           <div class="card-hero" href="#">
            <div class="card-image">
@@ -108,7 +104,7 @@ function searchHero() {
             </div>
             <div class="card-name">
               <h4 id="hero-name">${element.name}</h4>
-              <i onclick="addFavoritos(detalleHero)" class="far fa-heart"></i>           
+              <i onclick="addFavoritos(${element.id})" class="far fa-heart"></i>           
               </div>            
           </div>
                 `;
@@ -130,6 +126,7 @@ function searchHero() {
 }
 
 
+
 /***********************************************************/
 /*                       FAVORITOS                         */
 /***********************************************************/
@@ -137,26 +134,13 @@ function searchHero() {
 /* AÑADIR A FAVORITOS */
 
 
+function addFavoritos(id) {
+  for (let i = 0; i < arrayHero.length; i++) {
+    if (id == arrayHero[i].id) {
+      favoritos.push(arrayHero[i]);
+    }
+  }
 
-function addFavoritos(detalleHero) {
-  this.detalleHero = detalleHero
-  
- 
- /*  id = detalle.id;
-  name = detalle.name;
-  work = detalle.work.occupation */
-
-//return detalleHero(detalleHero.id, detalleHero.name, detalleHero.work)
-  arrayHero.push(detalleHero);
- console.log(arrayHero); 
-  
+  localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  console.log(arrayHero);
 }
-
-
-
-
-  
-  //arrayHero.push(detalleHero);
-
-
-  //localStorage.setItem("favoritos", JSON.stringify(arrayhero));
