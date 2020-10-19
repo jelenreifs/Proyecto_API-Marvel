@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body onload="drawFavoritos()">
 
     <header class="nav-wrapper">
         <div class="logo-container">
@@ -40,9 +40,10 @@
     <main class="wrapper">
         <section class="introduccion">
             <h2>Tus superhéroes favoritos</h2>
-            <button type="button" onclick="drawFavoritos()">cargar</button>
+            <div id="tabla-favoritos">
+               
 
-            <div id="tabla-favoritos"></div>
+            </div>
 
 
         </section>
@@ -68,6 +69,7 @@
     </div>
 
     <script src="js/index.js"></script>
+    <script src="js/favoritos.js"></script>
 
 </body>
 
