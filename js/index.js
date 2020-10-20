@@ -12,6 +12,12 @@ const URL_PATH = `https://superheroapi.com/api/${KEY}`;
 let imageHeroes;
 let resultsImages;
 let errorFetch;
+let filtroGender;
+let i;
+let imageGender;
+let resultGender;
+let select;
+let selectedOption;
 
 const HERO_ENDPOINTS = [
   `${URL_PATH}/search/spider-man`,
@@ -37,9 +43,24 @@ for (let i = 0; i < HERO_ENDPOINTS.length; i++) {
           imageHeroes += `
          <div class="item">
             <img src="${element.image.url}" alt="Imagen de ${element.name}">
-         </div>`;
+         </div>`; 
         })
+         document.querySelector('.masonry').innerHTML = '';
         document.querySelector('.masonry').innerHTML = imageHeroes;
+
+         filtroGender = `
+<div class="selectFiltro">
+  <h4>¿Superhéroe o Superheroína?</h4>
+        <select id="selector" onchange="capturaValor()">
+        <option value="">Selecciona</option>
+          <option value="Male">Superhéroe</option>
+          <option value="Female">Superheroina</option>
+        </select>
+</div>`;
+        
+    
+      document.querySelector('.filtro').innerHTML = filtroGender;
+       
         
       } else { 
         errorFetch = `
@@ -52,7 +73,43 @@ for (let i = 0; i < HERO_ENDPOINTS.length; i++) {
       }
 
     }) 
+  
+} 
+
+
+
+
+
+
+function capturaValor() {
+  select = document.getElementById('selector');
+  selectedOption = select.options[select.selectedIndex].value;
+  console.log(selectedOption);
+
+  for (let i = 0; i < HERO_ENDPOINTS.length; i++) {
+    fetch(HERO_ENDPOINTS[i])
+      .then(response => response.json())
+      .then(data => {
+       
+       resultsImages = data.results;
+    
+        resultGender = resultsImages.filter(elemento => elemento.appearance.gender == selectedOption)
+
+         resultGender.forEach(element => {
+          imageGender += `
+            <div class="item">
+               <img src="${element.image.url}" alt="Imagen de ${element.name}">
+            </div>` ;  
+        });
+        document.querySelector('.masonry').innerHTML = '';
+        document.querySelector('.masonry').innerHTML = imageGender;
+          
+
+  })
 }
+}
+  
+
 
 function cerrarMensaje() {
   console.log('Quiero cerrar')

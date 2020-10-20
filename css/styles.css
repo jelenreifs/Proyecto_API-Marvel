@@ -126,9 +126,9 @@ textarea {
 }
 
 button.search {
-  height: 51px;
+  height: 40px;
   margin: 0;
-  padding: 1rem 1.3rem;
+  padding: .5rem;
   border-radius: 0.25em;
   font-size: .75rem;
   display: inline-block;
@@ -192,7 +192,7 @@ header .nav-tab:not(:last-child) {
 }
 
 header .nav-tab:last-child {
-  padding: 10px 0 0 25px;
+  padding: 8px 20px;
 }
 
 header .nav-tab,
@@ -365,16 +365,27 @@ header .hidden {
   width: 100%;
 }
 
-/* NOVEDADES */
+/* HÉROES y VILLANOS */
 section.novedades {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
+.selectFiltro {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.selectFiltro h4 {
+  padding-right: 1em;
+  margin: 0;
+}
+
 .masonry {
   /* Masonry container */
-  column-count: 4;
+  column-count: 5;
   column-gap: 1em;
 }
 
@@ -444,6 +455,16 @@ section.novedades {
   .intro-info ul.heroesConocidos {
     padding-right: 0;
   }
+
+  .selectFiltro {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+    .selectFiltro h4 {
+      margin-bottom: .5em;
+    
 }
 
 @media only screen and (min-width: 700px) {
@@ -464,6 +485,18 @@ section.novedades {
   .intro-imagen {
     width: 30%;
   }
+
+  .selectFiltro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+}
+
+.selectFiltro h4 {
+  padding-right: 1em;
+  margin: 0;
+}
 }
 
 @media only screen and (min-width: 900px) {
@@ -476,15 +509,15 @@ section.novedades {
 
 @media only screen and (min-width: 1100px) {
   .masonry {
-    -moz-column-count: 5;
-    -webkit-column-count: 5;
-    column-count: 5;
+    -moz-column-count: 6;
+    -webkit-column-count: 6;
+    column-count: 6;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   .wrapper {
-    width: 1260px;
+    width: 100%;
   }
 }
 
@@ -529,6 +562,7 @@ footer nav li:hover,
 
 footer nav li a {
   text-decoration: none;
+  color: #fff;
 }
 
 footer p {
@@ -609,6 +643,7 @@ footer p {
   padding: 2em;
   justify-content: space-between;
   align-items: center;
+  width: 90%;
 }
 
 .filtro-wrapper,
@@ -646,7 +681,7 @@ footer p {
 }
 
 .results-wrapper img {
-  max-width: 260px;
+  max-width: 100%;
 }
 
 .card-name {
@@ -680,10 +715,18 @@ footer p {
   padding: 1em 0;
 }
 
+#tabla-favoritos td:last-child {
+  text-align: center;
+}
+
 #tabla-favoritos td:nth-child(1) {
   width: 6em;
   max-height: 60px;
   overflow: hidden;
+}
+
+#tabla-favoritos td {
+  padding: 1em;
 }
 
 #tabla-favoritos tr {
@@ -692,4 +735,12 @@ footer p {
 
 #tabla-favoritos img {
   width: 100%;
+}
+
+i.eliminar {
+  cursor: pointer;
+  background-color: #f00;
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 50%;
 }
