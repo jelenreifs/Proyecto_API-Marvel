@@ -2,74 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvel</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marvel</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body onload="drawFavoritos()">
 
-    <header class="nav-wrapper">
-        <div class="logo-container">
-            <img class="logo" src="./images/Logo-Marvel.png" alt="Logotipo Marvel">
-        </div>
-        <nav>
-            <input class="hidden" type="checkbox" id="menuToggle">
-            <label class="menu-btn" for="menuToggle">
-                <div class="menu"></div>
-                <div class="menu"></div>
-                <div class="menu"></div>
-            </label>
-            <div class="nav-container">
-                <ul class="nav-tabs">
-                    <li class="nav-tab"><a href="./index.html">Inicio</a></li>
-                    <li class="nav-tab"><a href="./sobre_nosotros.html">Sobre nosotros</a></li>
-                    <li class="nav-tab"><a href="./catalogo.html">Catálogo</a></li>
-                    <li class="nav-tab selected"><a href="#">Favoritos</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <main class="wrapper">
-        <section class="introduccion">
-            <h2>Tus superhéroes favoritos</h2>
-            <div id="tabla-favoritos">
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-    <footer>
-        <div class="logo-container">
-            <img class="logo" src="./images/Logo-Marvel.png" alt="Logotipo Marvel">
-        </div>
-        <nav>
-            <ul>
-                <li class="nav-tab"><a href="./index.html">Inicio</a></li>
-                <li class="nav-tab"><a href="./sobre_nosotros.html">Sobre nosotros</a></li>
-                <li class="nav-tab"><a href="./catalogo.html">Catálogo</a></li>
-                <li class="nav-tab"><a href="#">Favoritos</a></li>
-            </ul>
-        </nav>
-        <p>© Elena Reifs - BBK Bootcamp 2020-21</p>
-
-    </footer>
-
+  <header class="nav-wrapper">
+    <div class="logo-container">
+      <img class="logo" src="./images/Logo-Marvel.png" alt="Logotipo Marvel">
     </div>
+    <nav>
+      <input class="hidden" type="checkbox" id="menuToggle">
+      <label class="menu-btn" for="menuToggle">
+        <div class="menu"></div>
+        <div class="menu"></div>
+        <div class="menu"></div>
+      </label>
+      <div class="nav-container">
+        <ul class="nav-tabs">
+          <li class="nav-tab"><a href="./index.html">Inicio</a></li>
+          <li class="nav-tab"><a href="./sobre_nosotros.html">Sobre nosotros</a></li>
+          <li class="nav-tab"><a href="./catalogo.html">Catálogo</a></li>
+          <li class="nav-tab selected"><a href="#">Favoritos</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <script src="js/index.js"></script>
-    <script src="js/favoritos.js"></script>
+  <main class="wrapper">
+    <section class="introduccion">
+      <h2>Tus superhéroes favoritos</h2>
+      <div id="tabla-favoritos"></div>
+
+
+    </section>
+
+
+  </main>
+  <footer>
+    <div class="logo-container">
+      <img class="logo" src="./images/Logo-Marvel.png" alt="Logotipo Marvel">
+    </div>
+    <nav>
+      <ul>
+        <li class="nav-tab"><a href="./index.html">Inicio</a></li>
+        <li class="nav-tab"><a href="./sobre_nosotros.html">Sobre nosotros</a></li>
+        <li class="nav-tab"><a href="./catalogo.html">Catálogo</a></li>
+        <li class="nav-tab"><a href="#">Favoritos</a></li>
+      </ul>
+    </nav>
+    <p>© Elena Reifs - BBK Bootcamp 2020-21</p>
+
+  </footer>
+
+  </div>
+
+  <script src="js/index.js"></script>
+  <script src="js/favoritos.js"></script>
 
 </body>
 

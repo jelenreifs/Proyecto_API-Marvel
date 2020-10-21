@@ -14,7 +14,6 @@ let favoritosArray;
 function drawFavoritos() {
 
   if (localStorage.getItem("favoritos")) {
-   // localStorage.getItem("favoritos", JSON.parse(favoritos))
     superheroe = localStorage.getItem('favoritos');
     arraySuperheroe = JSON.parse(superheroe); 
 
@@ -50,9 +49,8 @@ function drawFavoritos() {
       </table>
     `
 
-    document.getElementById('tabla-favoritos').innerHTML = tabla
-    let tablaBody = document.getElementsByTagName('tbody');
-    //tabla.appendChild(tablaBody);
+    document.getElementById('tabla-favoritos').innerHTML = tabla;
+    
 
    
   } else {
@@ -63,23 +61,20 @@ function drawFavoritos() {
 
 
 
-function deleteFavorito(id) {
+/* function deleteFavorito(id) {
        for (var i = 0; i < localStorage.length; i++) {
        localStorage.removeItem(id[i]);
     }
-}
+} */
   
-function deleteFavorito(id) {   
+/* function deleteFavorito(id) {   
   for (let i = 0; i < arraySuperheroe.length; i++) {
     
      if (id == arraySuperheroe[i].id) {
       localStorage.removeItem(id);
   
     }
-  }
-
-
-
+  } */
 
    
 /*     if (id == favoritos[i].id) {

@@ -9,6 +9,7 @@ const URL_PATH = `https://superheroapi.com/api/${KEY}`;
 /***********************************************************/
 /*                        INDEX                            */
 /***********************************************************/
+
 let imageHeroes;
 let resultsImages;
 let errorFetch;
@@ -45,8 +46,8 @@ for (let i = 0; i < HERO_ENDPOINTS.length; i++) {
             <img src="${element.image.url}" alt="Imagen de ${element.name}">
          </div>`; 
         })
-         document.querySelector('.masonry').innerHTML = '';
-        document.querySelector('.masonry').innerHTML = imageHeroes;
+         document.getElementById("masonry").innerHTML = '';
+        document.getElementById("masonry").innerHTML = imageHeroes;
 
          filtroGender = `
 <div class="selectFiltro">
@@ -79,8 +80,6 @@ for (let i = 0; i < HERO_ENDPOINTS.length; i++) {
 
 
 
-
-
 function capturaValor() {
   select = document.getElementById('selector');
   selectedOption = select.options[select.selectedIndex].value;
@@ -101,8 +100,8 @@ function capturaValor() {
                <img src="${element.image.url}" alt="Imagen de ${element.name}">
             </div>` ;  
         });
-        document.querySelector('.masonry').innerHTML = '';
-        document.querySelector('.masonry').innerHTML = imageGender;
+        document.getElementById("masonry").innerHTML = '';
+        document.getElementById("masonry").innerHTML = imageGender;
           
 
   })
@@ -111,11 +110,11 @@ function capturaValor() {
   
 
 
-function cerrarMensaje() {
+/* function cerrarMensaje() {
   console.log('Quiero cerrar')
-/*   let error = document.querySelectorAll('.error');
-  document.querySelector('.aviso').removeChild(lastChild); */
-}
+  let error = document.querySelectorAll('.error');
+  document.querySelector('.aviso').removeChild(lastChild); 
+}*/
 
 
 
@@ -126,7 +125,6 @@ function cerrarMensaje() {
 
 let hero = "";
 let resultado;
-
 let arrayHero = [];
 let detalleHero;
 let favoritos = [];
@@ -169,13 +167,9 @@ function searchHero() {
     
 
       });
-      let areaResults = document.querySelector(".resultados");
       let resultsHeroes = document.getElementById("results-hero");
-      let titulo =  `<h3>Resultados</h3>`;
       resultsHeroes.innerHTML = hero;
-      //areaResults.insertBefore(titulo,hero);
-     // resultsHeroes.appendChild(titulo);
-       
+ 
     })
   
 
